@@ -1,12 +1,23 @@
-const path = require('path')
+// http://www.css88.com/doc/webpack2/guides/production-build/
+// function buildConfig(env) {
+//   return require('./config/' + env + '.js')({ env: env })
+// }
 
+// module.exports = buildConfig(env);
+
+
+var webpack = require('webpack');
+var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 
 module.exports = {
   entry: './src/index.js',
+
   output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+      filename: 'js/[name].[chunkhash].js',
+      path: path.resolve(__dirname, 'dist')
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -31,21 +42,44 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test:   /\.less$/,
+        test: /\.less$/,
         use: ['style-loader', "css-loader", "less-loader"]
-      },
+      }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000
-  },
   plugins: [
+
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    
+    //压缩
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true
+    }),
+
+    //拆分css
+     new ExtractTextPlugin({
+      filename: 'css/[name].[contenthash].css'
+    }),
+
+
+    // 代码分割 lib 存在于 node_modules 中则包装到 vendor 里
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function(module) {
+        return module.context && module.context.indexOf('node_modules')!==-1;
+      }
+    }),
+    
+    new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendor', 'manifest'] // 指定公共 bundle 的名字。
     })
   ]
 }
+
