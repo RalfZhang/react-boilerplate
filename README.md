@@ -13,6 +13,7 @@ webpack-merge
 chunk-manifest-webpack-plugin
 webpack-chunk-hash
 
+react-hot-loader
 
 //
 react-redux redux redux-thunk redux-logger redux redux-thunk redux-logger react-router-redux
