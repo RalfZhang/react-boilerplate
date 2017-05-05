@@ -1,3 +1,6 @@
+//build config
+
+
 // http://www.css88.com/doc/webpack2/guides/production-build/
 // function buildConfig(env) {
 //   return require('./config/' + env + '.js')({ env: env })
@@ -8,6 +11,8 @@
 
 var webpack = require('webpack');
 var path = require('path');
+
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
