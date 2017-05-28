@@ -5,11 +5,10 @@ class App extends Component {
   render() {
     return (
       <div className={styles.app}>
-        <div>React</div>
-        <div>hellooo!</div>
+        <div>Vue js</div>
+        <div>helloontnsno!</div>
       </div>
     )
   }
 }
-
 export default App
