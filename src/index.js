@@ -1,26 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import _ from 'lodash';
+// import {aobj} from './a';
+const b = require('./b');
+import a from './a';
 
+console.log('[index.js start]')
+function component() {
+  var element = document.createElement('div');
 
-import { AppContainer } from 'react-hot-loader'
-import App from './App'
-
-const render =(Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('app')
-  )
-
+  // Lodash, now imported by this script
+  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = 'hello' + a()+b.bfun() + a()+b.bfun();
+  console.log('obj'+ b.bobj.def)
+  return element;
 }
 
-render(App)
-
-
-// 模块热替换的 API
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    render(App)
-  });
-}
+document.body.appendChild(component());
