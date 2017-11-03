@@ -1,5 +1,6 @@
 const path = require('path');
-const HtmlWbepackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
   entry: {
@@ -7,7 +8,8 @@ const config = {
     print: './src/print.js',
   },
   plugins: [
-    new HtmlWbepackPlugin({
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
       title: 'output management'
     })
   ],
