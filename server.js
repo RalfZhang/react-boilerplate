@@ -1,19 +1,19 @@
+const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const app = express();
+const config = require('./webpack.config.dev');
+const compiler = webpack(config);
 
-new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    hot: true,
-    historyApiFallback: true,
-    stats: {
-        colors: true
-    }
-}).listen(3133, 'localhost', function (err) {
-    if (err) {
-        console.log(err);
-    }
 
-    console.log('Listening at localhost:3133');
-});
+// Tell express to use the webpack-dev-middleware and use the webpack.config.dev.js
+// configuration file as a base.
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+}));
+
+// Serve the files on port 3000
+app.listen(3000, function(){
+  console.log('Start listening on port 3000');
+})
