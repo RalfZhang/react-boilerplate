@@ -35,3 +35,12 @@ function component() {
 // console.log('[c] '+c.str());
 
 document.body.appendChild(component());
+
+
+console.log('module', module);
+if(module.hot) {
+  module.hot.accept('./print.js', function(){
+    console.log('Accepting the updated printMe module!')
+    printMe()
+  })
+}
