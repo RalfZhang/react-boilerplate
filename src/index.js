@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import { cube } from './math.js';
 import printMe from './print.js';
 // import './style.css';
@@ -11,8 +11,8 @@ function component() {
   var element = document.createElement('div');
   var btn = document.createElement('button');
 
-  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.innerHTML ='abc'
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  // element.innerHTML ='abc'
 
   btn.innerHTML = 'Click me and check the console!';
   btn.onclick = printMe;
