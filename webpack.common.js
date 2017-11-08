@@ -35,12 +35,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
+        include: path.resolve(__dirname, "src"),
         use: ['style-loader', 'css-loader']
       }, {
         test: /\.(png|svg|jpg|gif)$/,
+        include: path.resolve(__dirname, "src"),
         use: ['file-loader']
       }, {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
+        include: path.resolve(__dirname, "src"),
         use: ['file-loader']
       }
     ],
