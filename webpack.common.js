@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    main: './src/index.js',
+    vendor: [
+      'lodash'
+    ]
     // another: './src/another-module.js',
   },
   plugins: [
@@ -13,14 +16,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Production'
     }),
-    // https://doc.webpack-china.org/guides/code-splitting/
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'common'
-    // })
+    // 提取 vendor
+    // https://doc.webpack-china.org/guides/caching/#-extracting-boilerplate-
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    // 稳定 vendor chunkhash
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime'
+    }),
   ],
   output: {
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
