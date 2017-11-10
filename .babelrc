@@ -1,6 +1,11 @@
 {
   "presets": [
-    ["es2015", {"modules": false}],
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }],
     // webpack现在已经支持原生的import语句了, 并且将其运用在tree-shaking特性上
 
     "stage-3",
