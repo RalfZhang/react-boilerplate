@@ -3,6 +3,10 @@ const webpack = require('webpack');
 const ClearWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = {
   entry: {
     main: './src/index.js',
@@ -34,16 +38,20 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: resolve('src'),
+        loader: ['babel-loader']
+      }, {
         test: /\.css$/,
-        include: path.resolve(__dirname, "src"),
+        include: resolve('src'),
         use: ['style-loader', 'css-loader']
       }, {
         test: /\.(png|svg|jpg|gif)$/,
-        include: path.resolve(__dirname, "src"),
+        include: resolve('src'),
         use: ['file-loader']
       }, {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        include: path.resolve(__dirname, "src"),
+        include: resolve('src'),
         use: ['file-loader']
       }
     ],
