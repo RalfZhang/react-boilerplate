@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { cube } from './math.js';
-// import printMe from './print.js';
+import printMe from './print.js';
 // import './style.css';
 
 // if (process.env.NODE_ENV !== 'production') {
@@ -10,8 +10,11 @@ import { cube } from './math.js';
 function component() {
   var element = document.createElement('div');
   var btn = document.createElement('button');
+  var btn2 = document.createElement('button');
   var br = document.createElement('br');
 
+  btn2.innerHTML='Click to output console';
+  btn2.onclick = printMe;
   
   btn.innerHTML = 'Click me and check the console!';
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
@@ -19,11 +22,12 @@ function component() {
 
   element.appendChild(br);
   element.appendChild(btn);
+  element.appendChild(btn2);
   
-  btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
-    var print = module.default;
-    print();
-  })
+  // btn.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+  //   var print = module.default;
+  //   print();
+  // })
   
   return element;
 }

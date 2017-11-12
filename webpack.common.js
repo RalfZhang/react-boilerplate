@@ -25,14 +25,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
-    // 稳定 vendor chunkhash
+    // 稳定 vendor hash
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime'
     }),
   ],
   output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
