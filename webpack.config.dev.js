@@ -4,7 +4,7 @@ const common = require('./webpack.common.js');
 
 
 const config = {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   // 使用 webpack-dev-server 时候应应用此类配置项
   // devServer: {
   //   contentBase: './dist',

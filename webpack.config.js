@@ -4,6 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 
 const config = {
+  devtool: 'source-map',
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true
