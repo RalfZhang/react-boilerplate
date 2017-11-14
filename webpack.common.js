@@ -40,7 +40,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: resolve('src'),
-        loader: ['babel-loader']
+        use: ['babel-loader']
       }, {
         test: /\.css$/,
         include: resolve('src'),
@@ -48,11 +48,21 @@ module.exports = {
       }, {
         test: /\.(png|svg|jpg|gif)$/,
         include: resolve('src'),
-        use: ['file-loader']
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+          }
+        }
       }, {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         include: resolve('src'),
-        use: ['file-loader']
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+          }
+        }
       }
     ],
   }
