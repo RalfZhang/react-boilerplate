@@ -5,7 +5,11 @@ const config = require('./webpack.config.dev.js');
 const options = {
   contentBase: './dist',
   hot: true,
-  host: 'localhost'
+  // hotOnly: true,
+  host: 'localhost',
+  open: true,
+  proxy: {},
+  publicPath: '/'
 };
 
 webpackDevServer.addDevServerEntrypoints(config, options);
