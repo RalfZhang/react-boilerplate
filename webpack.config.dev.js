@@ -10,13 +10,14 @@ const config = {
     contentBase: './dist',
     hot: true,
     hotOnly: false,
-  },
-  output: {
+    open: true,
+    proxy: {},
     publicPath: '/',
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
 
