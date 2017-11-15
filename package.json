@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.config.dev.js",
+    "devb": "webpack --config webpack.config.dev.js",
     "start": "node dev-server.js",
-    "startb": "webpack-dev-server --config webpack.config.dev.js --open",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --open",
     "server": "node server.js",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --watch"
