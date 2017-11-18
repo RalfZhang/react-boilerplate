@@ -16,9 +16,10 @@
     // Stage 2 是 "草案", 4 是 "已完成", 0 is "稻草人(strawman)"。
     // 详情查看 https://tc39.github.io/process-document/
     
-  ]
-  // "plugins": [
+  ],
+  "plugins": [
+    "transform-runtime"
   //   "react-hot-loader/babel"
   //   // 开启react代码的模块热替换（HMR）
-  // ]
+  ]
 }
