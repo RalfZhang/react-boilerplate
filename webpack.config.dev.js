@@ -15,7 +15,7 @@ const config = {
     open: true,
     proxy: {},
     publicPath: '/',
-    quiet: true, // necessary for FriendlyErrorsPlugin (未配置)
+    quiet: true, // necessary for FriendlyErrorsPlugin
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

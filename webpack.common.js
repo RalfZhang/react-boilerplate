@@ -18,7 +18,7 @@ module.exports = {
   plugins: [
     new ClearWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Production'
+      template: 'index.html'
     }),
     // 提取 vendor
     // https://doc.webpack-china.org/guides/caching/#-extracting-boilerplate-
