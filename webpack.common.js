@@ -10,10 +10,6 @@ function resolve (dir) {
 module.exports = {
   entry: {
     main: './src/index.js',
-    vendor: [
-      'lodash'
-    ]
-    // another: './src/another-module.js',
   },
   plugins: [
     new ClearWebpackPlugin(['dist']),
@@ -23,7 +19,10 @@ module.exports = {
     // 提取 vendor
     // https://doc.webpack-china.org/guides/caching/#-extracting-boilerplate-
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: 'vendor',
+      minChunks: function(module) {
+        return module.context && module.context.indexOf('node_modules')!==-1;
+      }
     }),
     // 稳定 vendor hash
     new webpack.optimize.CommonsChunkPlugin({
