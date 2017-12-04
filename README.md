@@ -1,6 +1,4 @@
-# React 开发脚手架
-
-功能：  
+# React 开发脚手架  
 
 `npm run dev`  
 - 热模块更新

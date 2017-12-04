@@ -5,7 +5,7 @@ import './style.css';
 
 const element = (
   <h1>
-    Hellot
+    Hello
   </h1>
 );
 
