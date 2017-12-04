@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const baseConfig = require('./webpack.base.js');
 
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
@@ -19,10 +19,10 @@ const config = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    // new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin(),
   ],
 };
 
-module.exports = merge(common, config);
+module.exports = merge(baseConfig, config);

@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --config webpack.config.dev.js",
     "dev": "webpack-dev-server --progress --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack --config webpack.config.js --watch"
+    "build": "webpack --config webpack.config.prod.js",
+    "watch": "webpack --config webpack.config.prod.js --watch"
   },
   "keywords": [],
   "author": "",

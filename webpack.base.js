@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const ClearWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function resolve (dir) {
@@ -12,27 +11,13 @@ module.exports = {
     main: './src/index.js',
   },
   plugins: [
-    new ClearWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    // 提取 vendor
-    // https://doc.webpack-china.org/guides/caching/#-extracting-boilerplate-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function(module) {
-        return module.context && module.context.indexOf('node_modules')!==-1;
-      }
-    }),
-    // 稳定 vendor hash
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest",
-      chunks: ['vendor']
-    }),
   ],
   output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    // chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
