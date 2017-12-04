@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devb": "webpack --config webpack.config.dev.js",
-    "start": "node dev-server.js",
+    "start": "webpack-dev-server --progress --config webpack.config.dev.js",
     "dev": "webpack-dev-server --progress --config webpack.config.dev.js",
-    "server": "node server.js",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --watch"
   },
