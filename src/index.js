@@ -8,7 +8,7 @@ const element = (
     Hello
   </h1>
 );
-
+console.log('abc')
 ReactDOM.render(
   element,
   document.getElementById('root')

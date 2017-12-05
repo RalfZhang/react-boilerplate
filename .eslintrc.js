@@ -1,6 +1,16 @@
 module.exports = {
+  root: true,
   "parser": "babel-eslint",
-  "rules": {
-    'no-console': 'off'
+  parserOptions: {
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    }
+  },
+  env: {
+      "browser": true
+  },
+  rules: {
+    'no-console': 2
   }
 }
