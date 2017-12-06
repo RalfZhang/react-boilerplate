@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  "parser": "babel-eslint",
+  parser: "babel-eslint",
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
@@ -8,9 +8,11 @@ module.exports = {
     }
   },
   env: {
-      "browser": true
+    "browser": true
   },
+  extends: 'airbnb-base',
   rules: {
-    'no-console': 2
+    'no-console': 0,
+    'linebreak-style': 0
   }
 }
