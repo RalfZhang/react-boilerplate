@@ -1,6 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import _ from 'lodash';
+import React from 'react'; // eslint-disable-line
+import ReactDOM from 'react-dom';
+// import _ from 'lodash';
 import './style.css';
 
 const element = (
@@ -8,8 +8,8 @@ const element = (
     Hello
   </h1>
 );
-console.log('abc')
+console.log('abc');
 ReactDOM.render(
   element,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

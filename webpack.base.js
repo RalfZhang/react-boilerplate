@@ -23,7 +23,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
+        use: {
+          loader:'eslint-loader',
+          options: {
+            formatter: require('eslint-friendly-formatter'),
+            emitWarning: true,
+          }
+        },
+        enforce: 'pre',
+        include: resolve('src'),
+      },
+      {
+        test: /\.(js|jsx)$/,
         include: resolve('src'),
         use: ['babel-loader']
       }, {
