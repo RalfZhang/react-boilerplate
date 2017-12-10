@@ -6,6 +6,9 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 
 const config = {
+  output: {
+    publicPath: '/',
+  },
   devtool: 'cheap-module-eval-source-map',
   // 使用 webpack-dev-server 时候应应用此类配置项
   devServer: {
@@ -16,6 +19,7 @@ const config = {
     proxy: {},
     publicPath: '/',
     quiet: true, // necessary for FriendlyErrorsPlugin
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
