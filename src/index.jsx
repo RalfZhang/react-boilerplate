@@ -2,14 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import _ from 'lodash';
 import './style.css';
-
-const element = (
-  <h1>
-    Hello
-  </h1>
-);
+import Routers from './router/index';
 
 ReactDOM.render(
-  element,
+  <Routers />,
   document.getElementById('root'),
 );
