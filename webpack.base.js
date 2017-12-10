@@ -8,7 +8,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    main: './src/index.jsx',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -20,6 +20,7 @@ module.exports = {
     // chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist')
   },
+  resolve: {extensions: ['.js','.jsx']},
   module: {
     rules: [
       {
@@ -29,6 +30,7 @@ module.exports = {
           options: {
             formatter: require('eslint-friendly-formatter'),
             emitWarning: true,
+            fix: true,
           }
         },
         enforce: 'pre',

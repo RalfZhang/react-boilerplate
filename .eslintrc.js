@@ -10,14 +10,12 @@ module.exports = {
   env: {
     "browser": true
   },
-  extends: 'airbnb-base',
+  extends: 'airbnb',
   plugins: [
     'react',
   ],
   rules: {
     'no-console': 0,
     'linebreak-style': 0,
-    "react/jsx-uses-react": 2,
-    // "react/jsx-uses-vars": 2,
   }
 }
